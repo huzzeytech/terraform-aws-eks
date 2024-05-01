@@ -473,7 +473,7 @@ locals {
   create_iam_role = var.create && var.create_iam_role
 
   iam_role_name          = coalesce(var.iam_role_name, "${var.name}-eks-node-group")
-  iam_role_policy_prefix = "arn:${data.aws_partition.current.partition}:iam::aws:policy"
+  iam_role_policy_prefix = "arn:aws:iam::aws:policy"
 
   ipv4_cni_policy = { for k, v in {
     AmazonEKS_CNI_Policy = "${local.iam_role_policy_prefix}/AmazonEKS_CNI_Policy"
